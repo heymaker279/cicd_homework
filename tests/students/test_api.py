@@ -98,3 +98,7 @@ def test_delete_course(client, courses_factory):
     assert response.status_code == 204
     assert len(data) == 9
     assert client.get('/api/v1/courses/' + f'{course_id}/').status_code == 404
+
+@pytest.mark.django_db
+def simple_test():
+    assert 1 + 1 == 2
