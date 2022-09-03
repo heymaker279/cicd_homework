@@ -1,3 +1,5 @@
+from unittest import TestCase
+
 import pytest
 from rest_framework.test import APIClient
 
@@ -99,6 +101,6 @@ def test_delete_course(client, courses_factory):
     assert len(data) == 9
     assert client.get('/api/v1/courses/' + f'{course_id}/').status_code == 404
 
-@pytest.mark.django_db
-def simple_test():
-    assert 1 + 1 == 2
+class Simple_test(TestCase):
+    def simple_test(self):
+        self.assertEqual(10, 5 * 2)
