@@ -17,6 +17,15 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Create db
+        run:
+          createdb -U postgres test_students
+
+      - name: Migration
+        run: |
+          python manage.py makemigrations
+          python manage.py migrate
+
       - name: Setup requirements-dev.txt
         run: |
           python -m pip install --upgrade pip
