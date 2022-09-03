@@ -26,9 +26,9 @@ jobs:
 #      - name: Code linting
 #        run: flake8 django_testing
 
-
-      - name: Create db
-        run: createdb ozevol18 -U postgres test_students
+#
+#      - name: Create db
+#        run: createdb ozevol18 -U postgres test_students
 
       - name: Migration
         run: |
