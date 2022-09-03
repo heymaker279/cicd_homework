@@ -29,11 +29,11 @@ jobs:
 #
 #      - name: Create db
 #        run: createdb ozevol18 -U postgres test_students
-
-      - name: Migration
-        run: |
-          python manage.py makemigrations
-          python manage.py migrate
+#
+#      - name: Migration
+#        run: |
+#          python manage.py makemigrations
+#          python manage.py migrate
 
       - name: Testing
         run: pytest --cov
