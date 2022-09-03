@@ -18,8 +18,7 @@ jobs:
           python-version: 3.9
 
       - name: Create db
-        run:
-          createdb -U postgres test_students
+        run: createdb -U postgres test_students with password ozevol18
 
       - name: Migration
         run: |
