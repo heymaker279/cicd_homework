@@ -78,12 +78,12 @@ WSGI_APPLICATION = 'django_testing.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': env('DB_ENGINE'),
-        'NAME': env('DB_NAME'),
-        'HOST': env('DB_HOST'),
-        'PORT': int(env('DB_PORT')),
-        'PASSWORD': env('DB_PASSWORD'),
-        'USER': env('DB_USER')
+        'ENGINE': env('DB_ENGINE', "django.db.backends.postgresql"),
+        'NAME': env('DB_NAME', "test_students"),
+        'HOST': env('DB_HOST', "localhost"),
+        'PORT': int(env('DB_PORT', "5432")),
+        'PASSWORD': env('DB_PASSWORD', "ozevol18"),
+        'USER': env('DB_USER', "postgres")
     }
 }
 
