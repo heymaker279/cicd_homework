@@ -17,13 +17,6 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Create db
-        run: createdb ozevol18 -U postgres test_students
-
-      - name: Migration
-        run: |
-          python manage.py makemigrations
-          python manage.py migrate
 
       - name: Setup requirements-dev.txt
         run: |
@@ -32,6 +25,15 @@ jobs:
 
 #      - name: Code linting
 #        run: flake8 django_testing
+
+
+      - name: Create db
+        run: createdb ozevol18 -U postgres test_students
+
+      - name: Migration
+        run: |
+          python manage.py makemigrations
+          python manage.py migrate
 
       - name: Testing
         run: pytest --cov
