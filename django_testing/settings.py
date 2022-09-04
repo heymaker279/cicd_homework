@@ -8,18 +8,20 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-import django_heroku
+import environ
 
+env = environ.Env(DEBUG=(bool, False))
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # from password import password, name
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "jkglh;mou;ljiowyvnu91pot4lhkj9uq0wotjqirtvqomt"
+SECRET_KEY = env('SECRET_KEY', default='the_best_secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -76,8 +78,8 @@ WSGI_APPLICATION = 'django_testing.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'test_students',
+        'ENGINE': env('DB_ENGINE'),
+        'NAME': env('DB_NAME'),
         # 'HOST': env('DB_HOST'),
         # 'PORT': int(env('DB_PORT')),
         # 'PASSWORD': env('DB_PASSWORD'),
@@ -124,5 +126,3 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
 }
-
-django_heroku.settings(locals())
