@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 import environ
+import django_heroku
 
 env = environ.Env(DEBUG=(bool, False))
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -126,3 +127,5 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
 }
+
+django_heroku.settings(locals())
