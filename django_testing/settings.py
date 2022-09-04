@@ -80,10 +80,10 @@ DATABASES = {
     'default': {
         'ENGINE': env('DB_ENGINE'),
         'NAME': env('DB_NAME'),
-        'HOST': env('DB_HOST'),
-        'PORT': int(env('DB_PORT')),
-        'PASSWORD': env('DB_PASSWORD'),
-        'USER': env('DB_USER'),
+        # 'HOST': env('DB_HOST'),
+        # 'PORT': int(env('DB_PORT')),
+        # 'PASSWORD': env('DB_PASSWORD'),
+        # 'USER': env('DB_USER'),
     }
 }
 
